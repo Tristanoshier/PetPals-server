@@ -25,4 +25,4 @@ app.use('/pet', pet);
 app.use('/post', post);
 // app.use('/profile', profile);
 
-app.listen(process.env.PORT, () => console.log('app is listening on port 3002'));
+app.listen(process.env.PORT, () => console.log('app is listening on port 3001'));
