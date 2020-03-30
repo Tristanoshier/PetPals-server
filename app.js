@@ -8,7 +8,7 @@ const app = express();
 const post = require("./controllers/postcontroller");
 const pet = require("./controllers/petcontroller");
 const user = require("./controllers/usercontroller");
-const profile = require("./controllers/profilecontroller");
+// const profile = require("./controllers/profilecontroller");
 
 //db import & sync
 const sequelize = require('./db');
@@ -23,7 +23,7 @@ app.use('/user', user)
 app.use(require('./middleware/validate-session'));
 app.use('/pet', pet);
 app.use('/post', post);
-app.use('/profile', profile);
+// app.use('/profile', profile);
 
 app.listen(process.env.PORT, () => console.log('app is listening on port 3001'));
 
