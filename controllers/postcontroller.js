@@ -7,7 +7,7 @@ const Post = require("../db").import("../models/post");
 router.post("/create", (req, res) => {
   console.log(req.body);
   const postFromRequest = {
-    desciption: req.body.desciption,
+    description: req.body.description,
     postUrl: req.body.postUrl
   };
   Post.create(postFromRequest)
