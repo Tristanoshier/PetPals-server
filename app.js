@@ -18,7 +18,7 @@ app.use(express.json());
 //middleware
 app.use(require('./middleware/headers'));
 
-//routes
+// //routes
 app.use('/user', user)
 app.use(require('./middleware/validate-session'));
 app.use('/pet', pet);
