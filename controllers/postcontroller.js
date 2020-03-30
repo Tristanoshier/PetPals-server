@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../db").import("../models/post");
-//desciption, postURL
+//desciption, postUrl
 
 //Create Post
 router.post("/create", (req, res) => {
   console.log(req.body);
   const postFromRequest = {
     desciption: req.body.desciption,
-    posturl: req.body.posturl
+    postUrl: req.body.postUrl
   };
   Post.create(postFromRequest)
     .then(post => res.status(200).json(post))
