@@ -8,7 +8,8 @@ router.post("/create", (req, res) => {
   console.log(req.body);
   const postFromRequest = {
     description: req.body.description,
-    postUrl: req.body.postUrl
+    postUrl: req.body.postUrl,
+    userId: req.user.id
   };
   Post.create(postFromRequest)
     .then(post => res.status(200).json(post))
@@ -38,7 +39,7 @@ router.get("/find", (req, res) => {
     where: {
       id: req.user.id
     },
-    include: [posts]
+    include: ["posts"]
   })
     .then(post => res.status(200).json(post))
     .catch(err =>
