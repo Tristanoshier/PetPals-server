@@ -8,7 +8,7 @@ router.post("/create", (req, res) => {
   console.log(req.body);
   const postFromRequest = {
     desciption: req.body.desciption,
-    postUrl: req.body.postUrl
+    posturl: req.body.posturl
   };
   Post.create(postFromRequest)
     .then(post => res.status(200).json(post))
