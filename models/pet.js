@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         bio: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue: ""
         },
         adoption: {
             type: DataTypes.BOOLEAN,
@@ -18,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         petPicUrl: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true,
+            defaultValue: ""
         }
     })
     return Pet;

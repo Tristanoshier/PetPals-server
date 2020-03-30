@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         postUrl: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue: ""
         }
     })
     return post;
