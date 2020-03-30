@@ -9,7 +9,7 @@ sequelize.authenticate()
 
 User = sequelize.import('./models/user');
 Pets = sequelize.import('./models/pet');
-ProgressEvent = sequelize.import('./models/post');
+Posts = sequelize.import('./models/post');
 
 Pets.belongsTo(User);
 Posts.belongsTo(User);
