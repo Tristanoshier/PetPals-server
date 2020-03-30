@@ -29,11 +29,11 @@ router.get("/find/feed", (req, res) => {
 
 //GET SPECIFIC PET
 router.get("/find", (req, res) => {
-    Pet.findOne({
+    User.findOne({
         where: {
             id: req.user.id
         },
-        include: [pets]
+        include: ["pets"]
     })
         .then(petInfo => res.status(200).json(petInfo))
         .catch(err =>
