@@ -99,7 +99,7 @@ router.get("/find", (req, res) => {
     Profile.findOne({
         where: {
             id: req.user.id
-        },
+        }
     })
         .then(profile => res.status(200).json(profile))
         .catch(err =>
