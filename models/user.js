@@ -27,7 +27,12 @@ module.exports = (sequelize, DataTypes) => {
         userType: {
             type: DataTypes.ENUM("Manager", "User"),
             defaultValue: "User"
-          }
+        },
+        ProfileImg: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: "../assets/profiledefault.jpg"
+        }
     })
     return User;
 }
