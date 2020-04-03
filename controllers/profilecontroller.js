@@ -1,3 +1,4 @@
+require('dotenv').config();
 //get profile info
 
 //update profile info
@@ -11,16 +12,16 @@ const multer = require('multer');
 const path = require( 'path' );
 
 const s3 = new aws.S3({
- accessKeyId: 'AKIASE64K4SBKHNJU5JO',
- secretAccessKey: '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',
- Bucket: 'petpalsbucket'
+ accessKeyId: process.env.ACCESS_KEY,
+ secretAccessKey: process.env.SECRET_ACCESS_KEY,
+ Bucket: process.env.BUCKET_NAME
 });
 
 //CONNECTS TO AWS ACCOUNT AND MULTER TO UPLOAD SINGLE FILES
 const profileImgUpload = multer({
     storage: multerS3({
      s3: s3,
-     bucket: 'petpalsbucket',
+     bucket: BUCKET_NAME,
      acl: 'public-read',
      key: function (req, file, cb) {
       cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
