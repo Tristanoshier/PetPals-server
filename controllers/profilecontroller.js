@@ -94,31 +94,8 @@ router.post('/profile-img-upload', (req, res) => {
 // })
 
 
-//GET SPECIFIC PROFILE OF USER
-router.get("/find", (req, res) => {
-    Profile.findOne({
-        where: {
-            id: req.user.id
-        }
-    })
-        .then(profile => res.status(200).json(profile))
-        .catch(err =>
-            res.status(500).json({
-                error: err
-            })
-        );
-});
-
 //UPDATE PROFILE
 //Already passed most of what the user needs in the auth
-router.put("/update/:id", (req, res) => {
-    Profile.update(req.body, {
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(profile => res.status(200).json(profile))
-        .catch(err => res.json(req.errors));
-})
+
 
 module.exports = router;

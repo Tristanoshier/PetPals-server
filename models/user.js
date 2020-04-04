@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         ProfileImg: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: "../assets/profiledefault.jpg"
+            defaultValue: ""
         }
     })
     return User;
