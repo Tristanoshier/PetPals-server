@@ -63,7 +63,9 @@ router.put("/edit/:id", (req, res) => {
 //Delete posts
 router.delete("/delete/:id", (req, res) => {
   Post.destroy({
-    where: req.params.id
+    where: {
+      id: req.params.id
+    }
   })
     .then(post => res.status(200).json(post))
     .catch(err =>
