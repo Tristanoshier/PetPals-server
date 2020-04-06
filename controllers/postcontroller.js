@@ -25,7 +25,7 @@ router.post("/create", (req, res) => {
 router.get("/find/feed", (req, res) => {
   Post.findAll()
 
-    .then(post => res.status(500).json(post))
+    .then(post => res.status(200).json(post))
     .catch(err =>
       res.status(500).json({
         error: err
