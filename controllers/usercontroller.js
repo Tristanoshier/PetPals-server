@@ -2,6 +2,11 @@ const router = require('express').Router();
 const User = require('../db').import('../models/user');
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 71b966fdad857ddf33516479014bd9f128125593
 //allows user to sign up for an account
 router.post('/signup', (req, res) => {
     User.create({
@@ -79,6 +84,19 @@ router.get('/find', (req, res) => {
             })
         );
 });
+<<<<<<< HEAD
+=======
+
+router.get('/find-all', (req, res) => {
+    User.findAll()
+    .then(users => res.status(200).json(users))
+    .catch(err =>
+        res.status(500).json({
+            error: err
+        }))
+})
+
+>>>>>>> 71b966fdad857ddf33516479014bd9f128125593
 router.put("/update/:username", (req, res) => {
     User.update(req.body, {
         where: {
@@ -88,4 +106,9 @@ router.put("/update/:username", (req, res) => {
         .then(profile => res.status(200).json(profile))
         .catch(err => res.json(req.errors));
 })
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 71b966fdad857ddf33516479014bd9f128125593
 module.exports = router;
