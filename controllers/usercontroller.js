@@ -3,6 +3,7 @@ const User = require('../db').import('../models/user');
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 
+
 //allows user to sign up for an account
 router.post('/signup', (req, res) => {
     User.create({
@@ -83,6 +84,15 @@ router.get('/find', (req, res) => {
         );
 });
 
+router.get('/find-all', (req, res) => {
+    User.findAll()
+    .then(users => res.status(200).json(users))
+    .catch(err =>
+        res.status(500).json({
+            error: err
+        }))
+})
+
 router.put("/update/:username", (req, res) => {
     User.update(req.body, {
         where: {
@@ -92,5 +102,6 @@ router.put("/update/:username", (req, res) => {
         .then(profile => res.status(200).json(profile))
         .catch(err => res.json(req.errors));
 })
+
 
 module.exports = router;
