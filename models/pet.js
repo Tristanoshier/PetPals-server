@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         petPicUrl: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: ""
+            defaultValue: "https://www.amigonaosecompra.com.br/assets/fallback/thumb_default_pet-675f19f8212c0176eb193a2110351fdf91eb20408d9d6e5ecd796310c49c11ba.png"
         }
     })
     return Pet;
