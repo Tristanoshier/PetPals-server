@@ -59,7 +59,9 @@ router.post("/create", imgUpload.single('image'), (req, res) => {
   const postFromRequest = {
     description: req.body.description,
     postUrl: req.file.location, //SAVES AWS FILE URL TO POSTURL 
-    userId: req.user.id
+    userId: req.user.id,
+    username: req.user.username,
+    userProfile: req.user.ProfileImg
   };
   Post.create(postFromRequest)
     .then(post => res.status(200).json(post))
