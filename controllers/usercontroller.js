@@ -146,5 +146,23 @@ router.put("/update/profile-pic/:username", imgUpload.single('image'), (req, res
     .catch(err => res.status(500).json(err))
 })
 
+//DELETE USER FOR ADMIN
+router.delete("/delete/:username", (req, res) => {
+    User.findOne({
+        where: {
+            username: req.params.username
+        }
+    }).then((foundUser) => {
+        foundUser.destroy({
+            username: req.params.username
+        })
+    }).then((user) => res.status(200).json(user))
+    .catch(err => {
+        res.json({
+            error: err
+        })
+    })
+});
+
 
 module.exports = router;
