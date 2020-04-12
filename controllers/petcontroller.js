@@ -85,6 +85,20 @@ router.put('/update/:id', function (req, res) {
         .catch(err => res.json(req.errors))
 })
 
+//UPDATE PETS PROFILE PICTURE
+router.put("/update/pet-pic/:id", imgUpload.single('image'), (req, res) => {
+    Pet.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(pet => {
+        pet.update({
+            petPicUrl: req.file.location
+        })
+    }).then(petPic => res.status(200).json(petPic))
+    .catch(err => res.status(500).json(err))
+})
+
 //DELETE PET
 router.delete('/delete/:id', (req, res) => {
     Pet.destroy({
